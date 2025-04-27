@@ -10,13 +10,14 @@ app.use(cors());
 // Create HTTP server
 const server = http.createServer(app);
 
-// Initialize Socket.IO
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:3000', // your frontend URL
+    origin: 'https://realtimechat-frontend.vercel.app',
     methods: ['GET', 'POST'],
-  },
+    credentials: true
+  }
 });
+
 
 // Directly Connect to MongoDB Atlas
 mongoose.connect('mongodb+srv://arakutrip2023december:yGs2F5c3UwAKMY3y@cluster0.xzu3cnk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
